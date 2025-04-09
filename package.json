@@ -1,0 +1,42 @@
+{
+  "name": "my-next-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/is-prop-valid": "^1.3.1",
+    "@emotion/react": "^11.14.0",
+    "@heroicons/react": "^2.2.0",
+    "@sendgrid/mail": "^8.1.4",
+    "@tabler/icons-react": "^3.31.0",
+    "autoprefixer": "^10.4.20",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.4.3",
+    "lenis": "^1.1.20",
+    "my-next-app": "file:",
+    "next": "^15.2.4",
+    "react": "^18.3.1",
+    "react-animated-cursor": "^2.11.2",
+    "react-animated-numbers": "^1.0.0",
+    "react-dom": "^18.3.1",
+    "react-type-animation": "^3.2.0",
+    "resend": "^4.1.2",
+    "simplex-noise": "^4.0.3",
+    "tailwind-merge": "^3.1.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@types/node": "^22.14.0",
+    "@types/react": "^19.1.0",
+    "eslint": "^9",
+    "eslint-config-next": "15.1.7",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.8.2"
+  }
+}

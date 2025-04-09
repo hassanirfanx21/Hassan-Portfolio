@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+/* globals.css */
+html {
+  scroll-behavior: smooth;
+}
+
+
+
+/* favicon colour */
+/* globals.css */
+link[rel="icon"] {
+  filter: invert(45%) sepia(100%) saturate(500%) hue-rotate(180deg) brightness(90%) contrast(100%);
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+::selection {
+  background-color: rgb(8, 106, 133);
+  color: rgb(0, 0, 0);
+}
+/* this is to chanhe the selection of text */
+
+.custom-scrollbar {
+  scrollbar-width: thick;
+  scrollbar-color: rgba(255, 255, 255, 0.1) transparent; /* Almost transparent scrollbar */
+}
+
+/* Chrome, Edge, and Safari */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1); /* Light transparency */
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2); /* Slightly more visible on hover */
+}
+
+
+/* icon */
+.svg-cyan {
+  filter: invert(48%) sepia(88%) saturate(200%) hue-rotate(160deg) brightness(100%) contrast(95%);
+}
+
+/* cursor */
+.custom-cursor {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(7, 159, 182, 0.8); 
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+}
