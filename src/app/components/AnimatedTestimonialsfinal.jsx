@@ -3,15 +3,16 @@
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react"; // Add useRef here
 
 const AnimatedTestimonials = ({
   testimonials = [],
   autoplay = false,
-  interval = 3000,
+  interval = 2000,
 }) => {
   const [active, setActive] = useState(0);
   const [rotateAngles, setRotateAngles] = useState([]);
+  const intervalRef = useRef(null); // Add this line
 
   useEffect(() => {
     // Generate random rotation angles for each testimonial on the client side
@@ -19,26 +20,44 @@ const AnimatedTestimonials = ({
     setRotateAngles(angles);
   }, [testimonials]);
 
-  const handleNext = () => {
-    setActive((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const handlePrev = () => {
-    setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  const resetInterval = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current); // Clear the existing interval
+    }
+    if (autoplay) {
+      intervalRef.current = setInterval(handleNext, interval); // Set a new interval
+    }
   };
 
   const isActive = (index) => index === active;
 
   useEffect(() => {
+    // Autoplay logic
     if (autoplay) {
-      const intervalId = setInterval(handleNext, interval);
-      return () => clearInterval(intervalId);
+      resetInterval(); // Start the interval when autoplay is true
+    } else {
+      // Clear interval when autoplay is turned off
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
     }
-  }, [autoplay, interval, testimonials.length]);
 
-  if (!testimonials.length) {
-    return <div>No testimonials available</div>;
-  }
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current); // Clean up interval when component unmounts
+      }
+    };
+  }, [autoplay, interval, testimonials.length]); // Re-run effect when autoplay, interval, or testimonials change
+
+  const handleNext = () => {
+    setActive((prev) => (prev + 1) % testimonials.length);
+    resetInterval(); // Reset interval on manual navigation
+  };
+
+  const handlePrev = () => {
+    setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    resetInterval(); // Reset interval on manual navigation
+  };
 
   return (
     <div className="mx-auto max-w-sm px-4 py-20 font-sans antialiased md:max-w-4xl md:px-8 lg:px-12">

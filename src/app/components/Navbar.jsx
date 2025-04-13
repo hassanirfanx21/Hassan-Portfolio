@@ -61,7 +61,6 @@ const Navbar = () => {
             className="w-[4rem] h-12 md:w-[8rem] md:h-14 lg:w-[9rem] lg:h-16 object-cover transition-transform transform hover:scale-105"
             alt="Logo"
           />
-          
         </Link>
 
         {/* Mobile Menu Toggle Button */}
@@ -88,7 +87,11 @@ const Navbar = () => {
           <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8 mt-0">
             {navLinks.map((link, index) => (
               <li key={index}>
-                <NavLink href={link.path} title={link.title} />
+                <NavLink
+                  href={link.path}
+                  title={link.title}
+                  className="relative group"
+                />
               </li>
             ))}
           </ul>

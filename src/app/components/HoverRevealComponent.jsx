@@ -60,22 +60,7 @@ const HoverRevealComponent = () => {
       </motion.div>
 
       {/* Custom Cursor */}
-      <motion.div
-        style={{
-          position: 'fixed',
-          top: -10,
-          left: -10,
-          width: '40px',
-          height: '40px',
-          borderRadius: '50%',
-          backgroundColor: '#00CCCC',
-          pointerEvents: 'none',
-          transformOrigin: 'center',
-          x: cursorX,
-          y: cursorY,
-          zIndex: 9999,
-        }}
-      />
+     
     </div>
   );
 };

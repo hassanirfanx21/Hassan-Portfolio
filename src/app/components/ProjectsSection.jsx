@@ -54,7 +54,7 @@ const projectsData = [
   },
   {
     id: 6,
-    title: "kHOJ - a Search Engine",
+    title: "KHOJ Search Engine",
     description: "Flask-powered search engine with dynamic CSV updates ",
     image: "/images/projects/khoj.jpg",
     tag: ["All", "Web"],

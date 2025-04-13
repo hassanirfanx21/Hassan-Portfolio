@@ -72,14 +72,48 @@ body {
   filter: invert(48%) sepia(88%) saturate(200%) hue-rotate(160deg) brightness(100%) contrast(95%);
 }
 
-/* cursor */
+/* cursor
 .custom-cursor {
   position: fixed;
   width: 40px;
   height: 40px;
-  background-color: rgba(7, 159, 182, 0.8); 
+  background-color: rgba(30, 7, 182, 0.8); 
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
   mix-blend-mode: difference;
+} */
+
+
+/* globals.css */
+
+/* Hide the system cursor only on larger screens
+@media (min-width: 769px) {
+  body {
+    cursor: none;
+  }
+} */
+
+
+
+/* Alegreya Font Utility Class */
+.alegreya-font {
+  font-family: 'Alegreya', serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Optional: you can also define other Alegreya weights */
+.alegreya-light {
+  font-family: 'Alegreya', serif;
+  font-weight: 400;
+}
+.alegreya-bold {
+  font-family: 'Alegreya', serif;
+  font-weight: 700;
+}
+.alegreya-italic {
+  font-family: 'Alegreya', serif;
+  font-style: italic;
 }
